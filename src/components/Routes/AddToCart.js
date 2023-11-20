@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import{AddItem,SubItem} from '../Redux/ItemCountSlice'
 import { useNavigate } from 'react-router';
@@ -12,13 +12,13 @@ const AddToCart = () => {
   const dispatch=useDispatch()
   const navigate =useNavigate()
   const token =localStorage.getItem("token")
-const [user,setuser]=useState([])
+
  
   useEffect(()=>{
     if(token){
-      axios.get('https://localhost:4000/user/profile',{headers:{
+      axios.get('https://e-com-server-ce50.onrender.com/user/profile',{headers:{
         "authorization":`Bearer ${token}`
-      }}).then((res)=>setuser(res.data))
+      }}).then((res)=>console.log(res.data))
       .catch((err)=>console.log(err))
     }
     else{
