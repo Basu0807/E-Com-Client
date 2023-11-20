@@ -22,23 +22,23 @@ const Header = () => {
   const[data,setData]=useState({
     search:"",
 })
-
+console.log(data.search);
   const InputHandler=(e)=>{
     setData((pre)=>{
     return{...pre,[e.target.name]:e.target.value}
     })
     }
 
-    const Search=async(e)=>{
+    const Search=(e)=>{
       e.preventDefault()
-      await axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${data.search}`)
+     axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${data.search}`)
         .then((res)=>dispatch(SearchItem(res.data)))
         .catch((err)=>console.log(err))
 
-        setData({
+       setData({
           search:''
         })
-
+      
       navigate('/relatedProducts')
       
     }
