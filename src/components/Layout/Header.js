@@ -14,9 +14,9 @@ const Header = () => {
     setShowSubLinks(!showSubLinks);
   };
 
-  const handleMouseLeave = () => {
-    setShowSubLinks(false);
-  };
+  // const handleMouseLeave = () => {
+  //   setShowSubLinks(false);
+  // };
 
   const CartCount=useSelector((state)=>state.InDe.length)
   // console.log(CartCount);

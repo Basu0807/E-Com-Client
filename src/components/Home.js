@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Storedata } from './Routes/RoutesCompo'
 
 const Home = () => {
-  const ProductData =useContext(Storedata)
+  // const ProductData =useContext(Storedata)
   return (
     <>
    Welcome to our Shop
