@@ -251,4 +251,65 @@ td img[alt='product_image']{
     list-style: none;
     
 }
+ /* //loginSign */
+ .mainContainer{
+    height: 100vh;
+    width: 80%;
+    display: flex;
+    position: absolute;
+    left: 10%;
+    border: 1px solid white;
+    border-radius: 5%;
+   
+}
 
+.linkcontainer{
+  width: 80%;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5%;
+}
+.links{
+background-color: black;
+color: white;
+text-decoration: none;
+font-size: 30px;
+font-style: italic;
+padding: 5%;
+}
+
+
+img[alt ="welcome to the website"]{
+    height: 100%;
+    width: 50%;
+    border-radius: 5% 0% 0% 5%;
+
+
+}
+
+.formContainer{
+    background-color: orange;
+    width: 50%;
+    border-radius: 0% 5% 5% 0%;
+    text-align: center;
+    line-height: 50px;
+
+}
+input{
+    height: 40px;
+    border-radius: 5px;
+    
+}
+.btn{
+    height: 30px;
+    width: 250px;
+    background-color: rgb(0, 136, 255);
+    color: white;
+    border-radius: 5%;
+}
+
+.dashboard{
+    position: relative;
+    top: 15vh;
+    background-color: white;
+}

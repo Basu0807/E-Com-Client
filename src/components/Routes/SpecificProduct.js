@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router'
-import { Add } from '../Redux/CartSlice'
+// import { Add } from '../Redux/CartSlice'
 import { Storedata } from './RoutesCompo'
+import { Add } from '../Redux/CartSlice'
+import { useDispatch } from 'react-redux'
 
 
 const SpecificProduct = () => {
@@ -15,7 +17,10 @@ const dispatch =useDispatch()
 const AddToCart=()=>{
   alert('Product added')
   dispatch(Add(SelectedProduct))
+ 
+  
 }
+
   return (
     <>
    

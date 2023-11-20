@@ -9,6 +9,9 @@ import Watches from '../Products/Watches'
 import Clothes from '../Products/Clothes'
 import SpecificProduct from './SpecificProduct'
 import AddToCart from './AddToCart'
+import Login from './Login'
+import Signup from './SignUp'
+import Profile from './Profile'
  
 export const Storedata= createContext()
 const RoutesCompo = () => {
@@ -33,6 +36,9 @@ useEffect(()=>{
         <Route path="/Clothes" element={<Clothes />} />
         <Route path="/Data/:id" element={<SpecificProduct/>}/>
         <Route path="/AddToCart" element={<AddToCart/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/profile" element={<Profile/>}/>
       </Routes>
       </Storedata.Provider>
    
