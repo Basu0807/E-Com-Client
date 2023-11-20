@@ -1,8 +1,14 @@
+import axios from 'axios';
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
-import {Link, NavLink}from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import {Link, NavLink, useNavigate}from 'react-router-dom'
+import  SearchItem  from '../Redux/SearchedSlice';
+
 
 const Header = () => {
+
+  const dispatch =useDispatch()
+  const navigate =useNavigate()
     const[menu,setmenu]=useState(true)
     const [showSubLinks, setShowSubLinks] = useState(false);
     const [MobileSubLinks, setMobileSubLinks] = useState(false);
@@ -13,10 +19,29 @@ const Header = () => {
   const handleMouseEnter = () => {
     setShowSubLinks(!showSubLinks);
   };
+  const[data,setData]=useState({
+    search:"",
+})
 
-  // const handleMouseLeave = () => {
-  //   setShowSubLinks(false);
-  // };
+  const InputHandler=(e)=>{
+    setData((pre)=>{
+    return{...pre,[e.target.name]:e.target.value}
+    })
+    }
+
+    const Search=async(e)=>{
+      e.preventDefault()
+      await axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${data.search}`)
+        .then((res)=>dispatch(SearchItem(res.data)))
+        .catch((err)=>console.log(err))
+
+        setData({
+          search:''
+        })
+
+      navigate('/relatedProducts')
+      
+    }
 
   const CartCount=useSelector((state)=>state.InDe.length)
   // console.log(CartCount);
@@ -26,22 +51,13 @@ const Header = () => {
 
 <div className='NavBar'>
 
-
-       
-       
-        
-
-        <div className='Ham_icon' onClick={()=>{setmenu(!menu)}}>
+       <div className='Ham_icon' onClick={()=>{setmenu(!menu)}}>
         <div className='bar bar1'></div>
         <div className='bar bar2'></div>
         <div className='bar bar3'></div>
         </div>
 
-       
-        
-
-        
-      <div id='NavLinks'>
+       <div id='NavLinks'>
       <div className='heading'>
         <Link to ="/" className='NAV'>
         <span className='heading1'><img src='https://logo.com/image-cdn/images/kts928pd/production/16e479a89e4fd9e607f8b4c9861f85a13307230e-392x400.png?w=1080&q=72'alt='logo'/></span>
@@ -157,7 +173,7 @@ const Header = () => {
     <div className='Upper_task_bar'>
     
     <div className='User_Help_bar'>
-    <div><input type='text'placeholder='Search Here by Brands'/></div>
+    <div><form onSubmit={Search}><input type='text' name="search" value={data.search} onChange={InputHandler} placeholder='Search Here by Brands'/></form></div>
     <Link className='cart_logo' to='AddToCart'>   
     <img src='https://www.clker.com/cliparts/X/U/F/3/N/2/shopping-cart-logo.svg' alt='cart_logo'/><span>{CartCount}</span>
 </Link>

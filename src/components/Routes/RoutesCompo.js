@@ -12,6 +12,7 @@ import AddToCart from './AddToCart'
 import Login from './Login'
 import Signup from './SignUp'
 import Profile from './Profile'
+import SearchedCompo from './SearchedCompo'
  
 export const Storedata= createContext()
 const RoutesCompo = () => {
@@ -39,6 +40,7 @@ useEffect(()=>{
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/relatedProducts" element={<SearchedCompo/>}/>
       </Routes>
       </Storedata.Provider>
    

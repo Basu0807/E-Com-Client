@@ -7,10 +7,7 @@ const Home = () => {
   return (
     <>
    Welcome to our Shop
-   <div className='linkcontainer'>
-    <div><Link to='/login' className='links'>Login</Link></div>
-   <div><Link to='/signup' className='links'>Signup</Link></div>
-    </div>
+   
     </>
 
   )
