@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { Storedata } from './Routes/RoutesCompo'
+import React from 'react'
+// import { Storedata } from './Routes/RoutesCompo'
 
 const Home = () => {
   // const ProductData =useContext(Storedata)
