@@ -10,7 +10,6 @@ body{
 .Upper_task_bar{
     display: flex;
     justify-content: space-around;
-    /* height: 30px; */
     width: 30%;
     /* background-color: grey; */
 }
@@ -30,6 +29,10 @@ body{
     align-items: center;
     width: 100%;
     justify-content: space-around;
+}
+.User_Help_bar button{
+    height: 30px;
+    border-radius: 5px;
 }
 .cart_logo{
     width: 15%;
@@ -52,9 +55,42 @@ body{
 }
 .profile_logo img[alt='profile_logo']{
     height: 25px;
-    width: 50%;
+    /* width: 50%; */
     /* margin-top: 10px; */
 }
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    position: relative;
+  }
+  
+  nav ul li {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none   ;
+    color: #333;
+  }
+  
+  nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+  }
+  
+  nav ul ul li {
+    display: block;
+  }
+  
+  nav ul li:hover > ul {
+    display: block;
+  }
 
 .heading{
     display: flex;
@@ -100,7 +136,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 30px;
+    height: 40px;
 }
 
 
@@ -111,7 +147,9 @@ body{
     font-weight: bold;
 }
 .NAV:hover{
-    color: rgb(81, 107, 109)
+    color: rgb(81, 107, 109);
+    
+    
    }
 
 .NavLine{
@@ -223,18 +261,42 @@ justify-content: space-evenly;
 /* Cart Component */
 .Cart_Container{
     width: 100%;
+    display: flex;
+    justify-content: space-evenly;
    position: relative;
    top: 15vh;
 }
-.CartTable{
-    width: 80%;
-    
-    background-color: aqua;
+.Cart_Products{
+    width: 50%;
 }
-td img[alt='product_image']{
-    width: 50px;
-    height: 50px;
+.Added_Product{
+    width: 90%;
+    height: 150px;
+    display: flex;
+    margin-bottom: 10px;
+   padding: 10px;
+    box-shadow: rgb(210, 208, 208) 0px 0px 2px 2px ;
+    border-radius: 3px;
 }
+.Added_Product img[alt='product_image']{
+    width: 100px;
+    height: 100px;
+    padding: 8px;
+    }
+    .Added_Product_details{
+        padding-left: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .Count_btn_Container{
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .count_btn{
+        width: 10%;
+    }
 .sub_links{
     width: 15%;
     height: 20vh;
@@ -296,7 +358,7 @@ img[alt ="welcome to the website"]{
 
 }
 input{
-    height: 40px;
+    height: 30px;
     border-radius: 5px;
     
 }
@@ -312,4 +374,53 @@ input{
     position: relative;
     top: 15vh;
     background-color: white;
+}
+
+/* ..............footer................... */
+
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #596b6629;
+    padding: 10px;
+}
+
+.footer_links{
+    color: black;
+    text-decoration: none;
+    
+}
+
+.company_details{
+    width: 30%;
+    padding: 10px
+}
+.company_details p{
+    text-align: left;
+}
+.company_details img[alt="notfound"]{
+    width: 40%;
+}
+.Products{
+    /* width: 10%; */
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+    padding: 10px;
+    text-align: center;
+}
+.Resourses{
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.find_me{
+    width: 32%;
+   
+}
+.find_me img[alt="notfound"]{
+    width: 30%;
 }

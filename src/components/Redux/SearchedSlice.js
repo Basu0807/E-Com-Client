@@ -5,10 +5,12 @@ const SearchedSlice =createSlice({
     initialState:[],
     reducers:{
         SearchItem:(state, action) => {
-            return state =action.payload;
+            console.log(action.payload);
+          return  state=action.payload
+            // return state =[...state,action.payload];
           },
     }
 })
 
-export const SearchItem=SearchedSlice.actions;
+export const {SearchItem}=SearchedSlice.actions;
 export default SearchedSlice.reducer;

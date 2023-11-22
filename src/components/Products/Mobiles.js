@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import GenericCompo from '../Routes/GenericCompo'
 import { Storedata } from '../Routes/RoutesCompo'
+import Footer from '../Layout/Footer'
 
 const Mobiles = () => {
 
@@ -11,12 +12,12 @@ const Mobiles = () => {
    <>
 
    <div className='main_container'>
-    <div className='side_container'> 
+    {/* <div className='side_container'> 
       <p>nsdofjwn</p>
       <p>nsdofjwn</p>
       <p>nsdofjwn</p>
       <p>nsdofjwn</p>
-    </div>
+    </div> */}
     <div className='Product_Container'>
     {
   ProductData && ProductData.filter((item)=>item.category ==="mobile").map((item,index)=>{
@@ -35,7 +36,7 @@ const Mobiles = () => {
 
    </div>
 
-   
+   <Footer/>
    </>
   )
 }

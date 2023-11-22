@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {Link, NavLink, useNavigate}from 'react-router-dom'
-import  SearchItem  from '../Redux/SearchedSlice';
+import { SearchItem } from '../Redux/SearchedSlice';
+
 
 
 const Header = () => {
@@ -10,19 +11,12 @@ const Header = () => {
   const dispatch =useDispatch()
   const navigate =useNavigate()
     const[menu,setmenu]=useState(true)
-    const [showSubLinks, setShowSubLinks] = useState(false);
-    const [MobileSubLinks, setMobileSubLinks] = useState(false);
-    const [ClothsSubLinks, setClothsSubLinks] = useState(false);
-    const [LaptopSubLinks, setLaptopSubLinks] = useState(false);
-    const [WatchsSubLinks, setWatchsSubLinks] = useState(false);
 
-  const handleMouseEnter = () => {
-    setShowSubLinks(!showSubLinks);
-  };
   const[data,setData]=useState({
     search:"",
+    item:[]
 })
-console.log(data.search);
+
   const InputHandler=(e)=>{
     setData((pre)=>{
     return{...pre,[e.target.name]:e.target.value}
@@ -32,9 +26,10 @@ console.log(data.search);
     const Search=(e)=>{
       e.preventDefault()
      axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${data.search}`)
-        .then((res)=>dispatch(SearchItem(res.data)))
+        .then((res)=>setData({item:res.data.data}))
         .catch((err)=>console.log(err))
 
+        dispatch(SearchItem(data.item))
        setData({
           search:''
         })
@@ -42,8 +37,14 @@ console.log(data.search);
       navigate('/relatedProducts')
       
     }
-
-  const CartCount=useSelector((state)=>state.InDe.length)
+    console.log(data.item);
+    console.log(data.search);
+    const HandleClick=()=>{
+      localStorage.removeItem('token')
+      alert('You will be logged out')
+      navigate('/login')
+        }
+  const CartCount=useSelector((state)=>state.InDe.Cart.length)
   // console.log(CartCount);
   return (
     <>
@@ -66,119 +67,94 @@ console.log(data.search);
   
         </div>
        <NavLink className='NAV'  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/">Home</NavLink>
-      <div><NavLink  className='NAV'onMouseEnter={handleMouseEnter}  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Accessories">Accessories</NavLink>
-      {showSubLinks && (
-        <div  className='sub_links'  onMouseLeave={handleMouseEnter}>
       <div>
-        <ul>
-          <li>Charger</li>
-          <li>Powerbank</li>
-          <li>FastCharger</li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-          <li>Headphones</li>
-        </ul>
-      </div>
-          
-        </div>
-      )}
+      <nav>
+  <ul>
+   <li>
+   <NavLink  className='NAV'style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Accessories">Accessories</NavLink>
+
+      <ul class="submenu">
+        <li>Charger</li>
+        <li>hp</li>
+        <li>Dell</li>
+      </ul>
+    </li>
+   
+  </ul>
+</nav>
       </div> 
       <div>
-      <NavLink   className='NAV'onMouseEnter={()=>setMobileSubLinks(!MobileSubLinks)}  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})}to="/Mobiles">Mobiles</NavLink>
-      {MobileSubLinks && (
-        <div  className='sub_links'  onMouseLeave={()=>setMobileSubLinks(!MobileSubLinks)}>
-          <div>
-        <ul>
-          <li>RealMe</li>
-          <li>Vivo</li>
-          <li>Apple</li>
-        </ul>
+      <nav>
+  <ul>
+   <li>
+   <NavLink   className='NAV'  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})}to="/Mobiles">Mobiles</NavLink>
+
+      <ul class="submenu">
+        <li>Acer</li>
+        <li>hp</li>
+        <li>Dell</li>
+      </ul>
+    </li>
+   
+  </ul>
+</nav>
       </div>
       <div>
-        <ul>
-          <h3>Accessories</h3>
-          <li>Headphones</li>
-          <li>Chargers</li>
-        </ul>
-      </div>
-        </div>
-      )}
-      </div>
-      <div>
-      <NavLink  className='NAV'onMouseEnter={()=>setClothsSubLinks(true)} style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Clothes">Clothes</NavLink>
-      {ClothsSubLinks && (
-        <div  className='sub_links'onMouseEnter={()=>setClothsSubLinks(true)} onMouseLeave={()=>setClothsSubLinks(false)}>
-          <div>
-        <ul>
-          <li>Charger</li>
-          <li>Powerbank</li>
-          <li>FastCharger</li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-        <h3>Accessories</h3>
-          <li>Headphones</li>
-          <li>Chargers</li>
-        </ul>
-      </div>
-        </div>
-      )}
-      </div>
-      <div>
-      <NavLink  className='NAV'onMouseEnter={()=>setWatchsSubLinks(true)}   style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Watches">Watches</NavLink>
-      {WatchsSubLinks && (
-        <div  className='sub_links' onMouseEnter={()=>setWatchsSubLinks(true)} onMouseLeave={()=>setWatchsSubLinks(false)}>
-         <div>
-        <ul>
-          <li>FastTrack</li>
-          <li>Titan</li>
-          <li>Casio</li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-        <h3>Accessories</h3>
-          <li>Headphones</li>
-          <li>Chargers</li>
-        </ul>
-      </div>
-        </div>
-      )}
+      <nav>
+  <ul>
+   <li>
+   <NavLink  className='NAV'  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Watches">Watches</NavLink>
+
+      <ul class="submenu">
+        <li>Acer</li>
+        <li>hp</li>
+        <li>Dell</li>
+      </ul>
+    </li>
+   
+  </ul>
+</nav>
       </div>
 <div>
-<NavLink  className='NAV'onMouseEnter={()=>setLaptopSubLinks(true)} onMouseLeave={()=>setLaptopSubLinks(false)}style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Laptops">Laptops</NavLink>
-{LaptopSubLinks && (
-        <div  className='sub_links'onMouseEnter={()=>setLaptopSubLinks(true)} onMouseLeave={()=>setLaptopSubLinks(false)}>
-          <div>
-        <ul>
-          <li>Acer</li>
-          <li>Dell</li>
-          <li>hp</li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-        <h3>Accessories</h3>
-          <li>Headphones</li>
-          <li>Chargers</li>
-        </ul>
-      </div>
-          
-        </div>
-      )}
+<nav>
+  <ul>
+   <li>
+   <NavLink  className='NAV' style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Laptops">Laptops</NavLink>
+
+      <ul class="submenu">
+        <li>Acer</li>
+        <li>hp</li>
+        <li>Dell</li>
+      </ul>
+    </li>
+   
+  </ul>
+</nav>
+
     </div>   
     <div className='Upper_task_bar'>
     
     <div className='User_Help_bar'>
-    <div><form onSubmit={Search}><input type='text' name="search" value={data.search} onChange={InputHandler} placeholder='Search Here by Brands'/></form></div>
+    <div><form onSubmit={Search}>
+      <input type='text' name="search" value={data.search} onChange={InputHandler} placeholder='Search Here by Brands'/>
+      <button type='submit'>Search</button>
+      </form></div>
+
     <Link className='cart_logo' to='AddToCart'>   
     <img src='https://www.clker.com/cliparts/X/U/F/3/N/2/shopping-cart-logo.svg' alt='cart_logo'/><span>{CartCount}</span>
 </Link>
-   <Link to='/profile' className='profile_logo'><img src='https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo.png' alt='profile_logo'/></Link> 
-       
+   <nav>
+  <ul>
+   <li>
+   <Link to='/profile' className='profile_logo'><img src='https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo.png' alt='profile_logo' /></Link> 
+
+      <ul class="submenu">
+        <li><button onClick={HandleClick} style={{width:50,backgroundColor:'black',color:'white'}}>Logout</button></li>
+      </ul>
+    </li>
+   
+  </ul>
+</nav>
         
     </div>
     </div>    

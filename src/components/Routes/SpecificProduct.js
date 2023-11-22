@@ -5,6 +5,7 @@ import { useLocation } from 'react-router'
 import { Storedata } from './RoutesCompo'
 import { Add } from '../Redux/CartSlice'
 import { useDispatch } from 'react-redux'
+// import Footer from '../Layout/Footer'
 
 
 const SpecificProduct = () => {
@@ -34,7 +35,7 @@ const AddToCart=()=>{
   <div  className='Generic_Product' >
   <h1>{item.heading}</h1><br/>
 <p>{item.description}</p><br/>
-<h2>Price: {item.price}</h2>
+<h2>Price:₹{item.price}</h2>
 <button className='add_to_cart_btn1' onClick={()=>AddToCart()}>Add to cart</button>
 
 </div>

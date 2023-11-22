@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux'
 import { Add } from '../Redux/CartSlice'
 import { Storedata } from './RoutesCompo'
 
+
 const GenericCompo = ({image,heading,price,id}) => {
 
   const dispatch= useDispatch()
@@ -33,6 +34,7 @@ const GenericCompo = ({image,heading,price,id}) => {
 </div>
 
 </div>
+
 </>
   )
 }
