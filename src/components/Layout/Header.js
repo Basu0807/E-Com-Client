@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {Link, NavLink, useNavigate}from 'react-router-dom'
 import { SearchItem } from '../Redux/SearchedSlice';
@@ -12,29 +12,39 @@ const Header = () => {
   const navigate =useNavigate()
     const[menu,setmenu]=useState(true)
 
-  const[data,setData]=useState({
-    search:"",
-    item:[]
-})
+  const[data,setData]=useState([])
+  const[search,setSearch]=useState('')
 
   const InputHandler=(e)=>{
-    setData((pre)=>{
+    setSearch((pre)=>{
     return{...pre,[e.target.name]:e.target.value}
     })
     }
 
-    const Search=(e)=>{
-      e.preventDefault()
-     axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${data.search}`)
-        .then((res)=>setData({item:res.data.data}))
-        .catch((err)=>console.log(err))
+    // useEffect((e)=>{
+    //   axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${data.search}`)
+    //       .then((res)=>setData({item:res.data.data}))
+    //       .catch((err)=>console.log(err))
+  
+    //       // dispatch(SearchItem(data.item))
+    //      setData({
+    //         search:''
+    //       })
+    // },[data.search])
 
-        dispatch(SearchItem(data.item))
-       setData({
-          search:''
-        })
-      
-      navigate('/relatedProducts')
+    const Search= async (e)=>{
+      e.preventDefault()
+     
+        axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${search}`)
+            .then((res)=>setData({item:res.data.data}))
+            .catch((err)=>console.log(err))
+            dispatch(SearchItem(data.item))
+           setData({
+              search:''
+            })
+          
+     
+     navigate('/relatedProducts')
       
     }
     console.log(data.item);
@@ -135,10 +145,11 @@ const Header = () => {
     <div className='Upper_task_bar'>
     
     <div className='User_Help_bar'>
-    <div><form onSubmit={Search}>
-      <input type='text' name="search" value={data.search} onChange={InputHandler} placeholder='Search Here by Brands'/>
-      <button type='submit'>Search</button>
-      </form></div>
+    <div>
+      <input type='text' name="search" value={search} onChange={InputHandler} placeholder='Search Here by Brands'/>
+      <button type='button' onClick={Search}>Search</button>
+      {/* <Link to='/relatedProducts'onClick={Search} state={{data:data.item}}>Search</Link> */}
+      </div>
 
     <Link className='cart_logo' to='AddToCart'>   
     <img src='https://www.clker.com/cliparts/X/U/F/3/N/2/shopping-cart-logo.svg' alt='cart_logo'/><span>{CartCount}</span>
