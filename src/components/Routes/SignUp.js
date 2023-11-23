@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import Home from '../Home'
+import { Link, useNavigate } from 'react-router-dom'
+
 
 
 const Signup = () => {
@@ -58,7 +58,7 @@ return (
 
   
     
-    <Home/>
+
    
 <form onSubmit={SubmitHandler}>
 <h1>Be Our New Registered Member</h1>
@@ -71,8 +71,8 @@ return (
             <input id="email" type="email" name="email" value={data.email}  onChange={InputHandler} placeholder="abc@gmail.com" required autoComplete='new-name' /><br></br>
             <label htmlFor="password">Password : </label>
             <input id="password" type="password" name="password" value={data.password} onChange={InputHandler} required autoComplete='new-name' /><br></br>
-            <button className="btn" type='submit'>Submit</button>
-            
+            <button className="btn" type='submit'>Submit</button><br/>
+            Already have an account? <Link to='/login'>Signup</Link>
             </form>
             </div>
     </div>

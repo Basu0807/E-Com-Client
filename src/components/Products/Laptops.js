@@ -32,7 +32,7 @@ const Laptops = () => {
     </div>
 
    </div>
-   <Footer/>
+   {/* <Footer/> */}
     </>
   )
 }

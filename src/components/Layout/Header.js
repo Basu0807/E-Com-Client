@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {Link, NavLink, useNavigate}from 'react-router-dom'
 import { SearchItem } from '../Redux/SearchedSlice';
@@ -12,30 +12,21 @@ const Header = () => {
   const navigate =useNavigate()
     const[menu,setmenu]=useState(true)
 
-  const[data,setData]=useState([])
-  const[search,setSearch]=useState('')
+  const[data,setData]=useState({
+    search:"",
+    item:[]
+})
 
   const InputHandler=(e)=>{
-    setSearch((pre)=>{
+    setData((pre)=>{
     return{...pre,[e.target.name]:e.target.value}
     })
     }
 
-    // useEffect((e)=>{
-    //   axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${data.search}`)
-    //       .then((res)=>setData({item:res.data.data}))
-    //       .catch((err)=>console.log(err))
-  
-    //       // dispatch(SearchItem(data.item))
-    //      setData({
-    //         search:''
-    //       })
-    // },[data.search])
-
     const Search= async (e)=>{
       e.preventDefault()
      
-        axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${search}`)
+        axios.get(`https://e-com-server-ce50.onrender.com/store/search/?keyword=${data.search}`)
             .then((res)=>setData({item:res.data.data}))
             .catch((err)=>console.log(err))
             dispatch(SearchItem(data.item))
@@ -55,6 +46,7 @@ const Header = () => {
       navigate('/login')
         }
   const CartCount=useSelector((state)=>state.InDe.Cart.length)
+  
   // console.log(CartCount);
   return (
     <>
@@ -84,9 +76,10 @@ const Header = () => {
    <NavLink  className='NAV'style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Accessories">Accessories</NavLink>
 
       <ul class="submenu">
-        <li>Charger</li>
-        <li>hp</li>
-        <li>Dell</li>
+        <li><Link to={'/products/Charger'} state={{Model:'charger'}}>Charger</Link></li>
+        <li><Link to={'/products/PowerBank'} state={{Model:'Power Bank'}}>Power Bank</Link></li>
+        
+        <li></li>
       </ul>
     </li>
    
@@ -100,9 +93,8 @@ const Header = () => {
    <NavLink   className='NAV'  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})}to="/Mobiles">Mobiles</NavLink>
 
       <ul class="submenu">
-        <li>Acer</li>
-        <li>hp</li>
-        <li>Dell</li>
+      <li><Link to={'/products/RealMe'} state={{Brand:'realme'}}>RealME</Link></li>
+        <li><Link to={'/products/Vivo'} state={{Brand:'Vivo'}}>Vivo</Link></li>
       </ul>
     </li>
    
@@ -116,9 +108,9 @@ const Header = () => {
    <NavLink  className='NAV'  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Watches">Watches</NavLink>
 
       <ul class="submenu">
-        <li>Acer</li>
-        <li>hp</li>
-        <li>Dell</li>
+      <li><Link to={'/products/Titan'} state={{Model:'titan'}}>Titan</Link></li>
+        <li><Link to={'/products/Casio'} state={{Model:'Casio'}}>Casio</Link></li>
+        <li><Link to={'/products/Fastrack'} state={{Model:'fastrack'}}>Fastrack</Link></li>
       </ul>
     </li>
    
@@ -132,9 +124,9 @@ const Header = () => {
    <NavLink  className='NAV' style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Laptops">Laptops</NavLink>
 
       <ul class="submenu">
-        <li>Acer</li>
-        <li>hp</li>
-        <li>Dell</li>
+      <li><Link to={'/products/Acer'} state={{Model:'Acer'}}>Acer</Link></li>
+        <li><Link to={'/products/Hp'} state={{Model:'Hp'}}>Hp</Link></li>
+        <li><Link to={'/products/Dell'} state={{Model:'Dell'}}>Dell</Link></li>
       </ul>
     </li>
    
@@ -146,7 +138,7 @@ const Header = () => {
     
     <div className='User_Help_bar'>
     <div>
-      <input type='text' name="search" value={search} onChange={InputHandler} placeholder='Search Here by Brands'/>
+      <input type='text' name="search" value={data.search} onChange={InputHandler} placeholder='Search Here by Brands' required/>
       <button type='button' onClick={Search}>Search</button>
       {/* <Link to='/relatedProducts'onClick={Search} state={{data:data.item}}>Search</Link> */}
       </div>
@@ -161,6 +153,9 @@ const Header = () => {
 
       <ul class="submenu">
         <li><button onClick={HandleClick} style={{width:50,backgroundColor:'black',color:'white'}}>Logout</button></li>
+        <li><Link to='/login'>Login</Link></li>
+        <li><Link to='/signup'>Signup</Link></li>
+        
       </ul>
     </li>
    

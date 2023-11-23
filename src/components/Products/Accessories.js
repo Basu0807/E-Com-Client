@@ -9,12 +9,12 @@ const Accessories = () => {
   return (
     <>
   <div className='main_container'>
-    {/* <div className='side_container'> 
+    <div className='side_container'> 
+      <p>Charger</p>
       <p>nsdofjwn</p>
       <p>nsdofjwn</p>
       <p>nsdofjwn</p>
-      <p>nsdofjwn</p>
-    </div> */}
+    </div>
     <div className='Product_Container'>
     {
   ProductData && ProductData.filter((item)=>item.category ==="accessories" || item.category==='Headphones').map((item,index)=>{

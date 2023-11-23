@@ -6,13 +6,13 @@ import Accessories from '../Products/Accessories'
 import Laptops from '../Products/Laptops'
 import Mobiles from '../Products/Mobiles'
 import Watches from '../Products/Watches'
-import Clothes from '../Products/Clothes'
 import SpecificProduct from './SpecificProduct'
 import AddToCart from './AddToCart'
 import Login from './Login'
 import Signup from './SignUp'
 import Profile from './Profile'
 import SearchedCompo from './SearchedCompo'
+import DynamicCompo from './DynamicCompo'
  
 export const Storedata= createContext()
 const RoutesCompo = () => {
@@ -34,13 +34,13 @@ useEffect(()=>{
         <Route path="/Laptops" element={<Laptops />} />
         <Route path="/Mobiles" element={<Mobiles />} />
         <Route path="/Watches" element={<Watches />} />
-        <Route path="/Clothes" element={<Clothes />} />
         <Route path="/Data/:id" element={<SpecificProduct/>}/>
         <Route path="/AddToCart" element={<AddToCart/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/relatedProducts" element={<SearchedCompo/>}/>
+        <Route path="/Products/:brand" element={<DynamicCompo/>}/>
       </Routes>
       </Storedata.Provider>
    

@@ -5,7 +5,7 @@ const SearchedSlice =createSlice({
     initialState:[],
     reducers:{
         SearchItem:(state, action) => {
-            console.log(action.payload);
+            // console.log(action.payload);
           return  state=(action.payload)
             // return state =[...state,action.payload];
           },
