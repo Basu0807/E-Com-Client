@@ -38,8 +38,8 @@ const Header = () => {
      navigate('/relatedProducts')
       
     }
-    console.log(data.item);
-    console.log(data.search);
+    // console.log(data.item);
+    // console.log(data.search);
 
     const HandleClick=()=>{
       localStorage.removeItem('token')
@@ -51,7 +51,9 @@ const Header = () => {
 
   const ScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  } 
+  
+  const token =localStorage.getItem('token')
   return (
     <>
    
@@ -161,12 +163,12 @@ const Header = () => {
 <nav>
   <ul>
    <li>
-   <Link to='/profile' className='profile_logo'><img src='https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo.png' alt='profile_logo' /></Link> 
+   <Link className='profile_logo'><img src='https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo.png' alt='profile_logo' /></Link> 
 
-      <ul className="submenu">
-        <li><button onClick={HandleClick} style={{width:50,backgroundColor:'black',color:'white'}}>Logout</button></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/signup'>Signup</Link></li>
+      <ul className="profile  ">
+        <li className={token?"":"login"}><Link style={{textDecoration:'none',color:'red'}} onClick={HandleClick}>LogOut</Link></li>
+        <li className={token?"login":""}><Link style={{textDecoration:'none',color:'black'}} to='/login'>Login</Link></li>
+        <li className={token?"login":""}><Link  style={{textDecoration:'none',color:'black'}}to='/signup'>Signup</Link></li>
         
       </ul>
     </li>

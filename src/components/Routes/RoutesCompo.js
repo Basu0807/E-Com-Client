@@ -41,6 +41,8 @@ useEffect(()=>{
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/relatedProducts" element={<SearchedCompo/>}/>
         <Route path="/Products/:brand" element={<DynamicCompo/>}/>
+        <Route path="/success" element={<DynamicCompo/>}/>
+        <Route path="/cancel" element={<DynamicCompo/>}/>
       </Routes>
       </Storedata.Provider>
    

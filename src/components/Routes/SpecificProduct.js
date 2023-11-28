@@ -11,7 +11,7 @@ const SpecificProduct = () => {
   const ProductData =useContext(Storedata)
   const id = useLocation().state.id
   const SelectedProduct = ProductData.find((item)=>item._id===id)
-  console.log(id,SelectedProduct)
+  // console.log(id,SelectedProduct)
 const dispatch =useDispatch()
 
 const AddToCart=()=>{

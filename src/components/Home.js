@@ -58,16 +58,16 @@ const ScrollToTop = () => {
   <Link to={"/Data/"+data._id+data.id} state={{id:data._id}} onClick={ScrollToTop}>
 <img  src={data.image} alt='product_logo'/>
 </Link>
-<div>
+<div className='description'>
 <p>{data.heading}</p>
 <p style={{color:'green',fontWeight:'bold'}}>Price: {data.price}</p>
+
+</div>
 <button onClick={()=>{
   const SelectedProduct =HomeData.find((item)=>item._id===data._id)
   dispatch(Add(SelectedProduct))
   alert('Product Added')
 }}>Add to cart</button>
-</div>
-
 </div>
   )
 })

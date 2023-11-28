@@ -2,17 +2,15 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-// import Footer from '../Layout/Footer';
 import { Decrease, Increase, Remove } from '../Redux/CartSlice';
 import { Link } from 'react-router-dom';
 import Footer from '../Layout/Footer';
-// import { Link } from 'react-router-dom';
 
 const AddToCart = () => {
   const CartItems=useSelector((state)=>state.InDe.Cart)
   const Total=useSelector((state)=>state.InDe.Total)
   const quantity=useSelector((state)=>state.InDe.quantity)
-  console.log(quantity);
+  
   const dispatch=useDispatch()
   const navigate =useNavigate()
   const token =localStorage.getItem("token")
@@ -31,6 +29,13 @@ const AddToCart = () => {
     }
       },[token,navigate])
     
+      const BuyNow=async()=>{
+        await axios.post('http://localhost:4000/checkout',{
+          quantity:quantity,
+          total:Total
+        }).then((res)=>console.log(res))
+      .catch((err)=>console.log(err))
+}
     
     
   return (
@@ -71,7 +76,7 @@ const AddToCart = () => {
       <h1 style={{color:'red'}}>Total Amount:₹{Total}</h1>
       <h2>Total Number of items Added - {quantity}</h2>
     
-      <button className='BuyNow_btn'>Buy Now</button>
+      <button className='BuyNow_btn' onClick={BuyNow}>Buy Now</button>
     </div>
       </div>
     : 

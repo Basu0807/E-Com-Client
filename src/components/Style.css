@@ -101,6 +101,14 @@ nav ul {
     font-weight: bold;
     border-radius: 5px;
   }
+   .login{
+    display: none;
+   
+}
+
+
+
+
   .submenu_link{
     text-decoration: none;
     color: rgb(52, 48, 48);
@@ -269,6 +277,10 @@ width: 100%;
 .Particular_product_Container{
     margin: 5px auto;
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     padding: 8px;
     text-align: center;
     border: 1px solid rgb(201, 199, 199);
@@ -521,6 +533,8 @@ input{
 }
 
 
+
+
 /* ................................. */
 @media only screen and (max-width: 600px) {
     .Ham_icon{
@@ -606,7 +620,7 @@ input{
 }
 .Particular_product_Container img[alt='product_logo'] {
     width: 100px;
-    height: 200px;
+    height: 100px;
 }
 .Search_Bar{
     display: flex;
@@ -655,7 +669,16 @@ padding: 5px;
     text-align: center;
     padding: 15px;
 }
+.mainContainer{
+    height: 80vh;
+    }
 
+input{
+    width: 30%;
+}    
+.btn{
+        width: 50%;
+}
 
 
 /* ..................footer............. */
@@ -686,6 +709,8 @@ padding: 5px;
     text-align: center;
    
 }
+
+
 
 
 
