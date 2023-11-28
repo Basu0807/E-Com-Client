@@ -596,6 +596,7 @@ input{
 .Product_Container{
     flex-direction: column;
     width: 100%;
+    
 }
 .Particular_product_Container{
     width: 80%;
@@ -636,6 +637,20 @@ padding: 5px;
 .Added_Product{
     width: 100%;
     align-items: center;
+}
+.Dynamic_Container{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    top: 10vh;
+    margin: 0px;
+  
+   
+}
+.Generic_Product{
+    width: 100%;
+    text-align: center;
+    padding: 15px;
 }
 
 

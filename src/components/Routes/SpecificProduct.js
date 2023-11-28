@@ -3,7 +3,7 @@ import { useLocation } from 'react-router'
 import { Storedata } from './RoutesCompo'
 import { Add } from '../Redux/CartSlice'
 import { useDispatch } from 'react-redux'
-import Footer from '../Layout/Footer'
+// import Footer from '../Layout/Footer'
 
 
 
@@ -24,7 +24,7 @@ const AddToCart=()=>{
   return (
     <>
    
-  <div>
+  
   {
       ProductData && ProductData.filter((item)=>item._id === id).map((item,index)=>{
         return(
@@ -45,8 +45,8 @@ const AddToCart=()=>{
       })
       
     }
-  </div>
-  <Footer/>
+ 
+  {/* <Footer/> */}
   
     </>
   )
