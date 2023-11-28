@@ -45,7 +45,7 @@ const AddToCart = () => {
     
           return(
            <div className='Added_Product' key={index}>
-    <img src={item.image} alt='product_image'/> 
+    <Link  to={"/Data/"+item._id} state={{id:item._id}} ><img src={item.image} alt='product_image'/> </Link>
     <div className='Added_Product_details'>
       <p style={{fontWeight:'bold',height:70}}>{item.heading}</p>
       <p style={{color:'green',fontWeight:'bold'}}>PRICE:₹{item.price}</p>  
@@ -57,7 +57,8 @@ const AddToCart = () => {
         else{
           dispatch(Decrease(item._id))
         }
-      }}className='count_btn'>-</button><button onClick={()=>dispatch(Remove(item._id))} style={{color:'red'}}>Remove</button></div>
+      }}className='count_btn'>-</button>
+      <button onClick={()=>dispatch(Remove(item._id))} style={{color:'white',backgroundColor:'black'}}>Remove</button></div>
       </div>
     
             </div>

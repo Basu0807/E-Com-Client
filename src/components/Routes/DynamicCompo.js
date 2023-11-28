@@ -3,12 +3,14 @@ import { useLocation } from 'react-router'
 import { Storedata } from './RoutesCompo'
 import { Link } from 'react-router-dom'
 import GenericCompo from './GenericCompo'
+import Footer from '../Layout/Footer'
 
 const DynamicCompo = () => {
   const Products =useContext(Storedata)
   const Brand=useLocation().state.Brand
   console.log(Brand);
   return (
+<>
 <div className='main_container'>
 <div className='side_container'> 
 <h1 style={{}}>Accessories You May Like</h1>
@@ -34,6 +36,8 @@ return(
 </div>
 
 </div>
+<Footer/>
+</>
 
   )
 }

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
-// import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router'
-// import { Add } from '../Redux/CartSlice'
 import { Storedata } from './RoutesCompo'
 import { Add } from '../Redux/CartSlice'
 import { useDispatch } from 'react-redux'
-// import Footer from '../Layout/Footer'
+import Footer from '../Layout/Footer'
+
 
 
 const SpecificProduct = () => {
@@ -25,7 +24,8 @@ const AddToCart=()=>{
   return (
     <>
    
-   {
+  <div>
+  {
       ProductData && ProductData.filter((item)=>item._id === id).map((item,index)=>{
         return(
           
@@ -36,16 +36,18 @@ const AddToCart=()=>{
   <h1>{item.heading}</h1><br/>
 <p>{item.description}</p><br/>
 <h2>Price:₹{item.price}</h2>
-<button className='add_to_cart_btn1' onClick={()=>AddToCart()}>Add to cart</button>
+<button className='add_to_cart_btn1' onClick={AddToCart}>Add to cart</button>
 
 </div>
 </div>
     
         )
       })
+      
     }
+  </div>
+  {/* <Footer/> */}
   
-
     </>
   )
   

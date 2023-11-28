@@ -6,6 +6,7 @@
 body{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: rgb(241, 239, 233);
+
 }
 
 .Upper_task_bar{
@@ -112,6 +113,7 @@ nav ul {
   }
 
 .heading{
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,17 +121,17 @@ nav ul {
     
 }
 .heading1{
-    /* width: 10%; */
-    font-weight: bold;
-    font-size: 20px;
+    width: 10%;
+
 }
 
 .heading1 img[alt="logo"]{
     height: 40px;
-    /* width: 100%; */
+position: relative;
+top: 8px;
 }
 .heading2{
-    font-size: 40px;
+    font-size: 180%;
     text-align: center;
     padding: 5px;
     color: rgb(119, 235, 10);
@@ -161,13 +163,34 @@ nav ul {
 }
 .NAV:hover{
     color: rgb(81, 107, 109);
-    
-    
-   }
+    }
 
 .NavLine{
     border: 1px solid black;
     margin: auto;
+}
+.Search_Container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.Search_Container input{
+    width: 50%;
+    padding: 10px;
+    /* font-size: 12px; */
+}
+.Search_Container button{
+    width: 20%;
+}
+
+.Search_Bar{
+ display: none;   
+}
+.cart_logo{
+    width: 20%;
+}
+.cart_logo img[alt='cart_logo']{
+width: 100%;
 }
 .Cart_Count{
     text-decoration: none;
@@ -190,7 +213,8 @@ nav ul {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    top: 12vh;
+    top: 11vh;
+    /* background-color: aqua; */
 } 
 .display_Image img[alt='product_images']{
     width: 100%;
@@ -207,7 +231,7 @@ nav ul {
     flex-wrap: wrap;
 }
 .Policy_Container{
-    width: 80%;
+    width: 90%;
     display: flex;
     align-items: center;
     margin:5px auto;
@@ -220,7 +244,7 @@ nav ul {
 
 
 .main_container{
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -232,7 +256,7 @@ nav ul {
     width: 20%;
     text-align: center;
     color: white;
-    background-color: rgb(129, 123, 123);
+    background-color: rgb(160, 156, 156);
     border-radius: 5px;
 }
 .Product_Container{
@@ -447,14 +471,15 @@ input{
 .footer{
     width: 100%;
     display: flex;
-    margin-top: 20vh;
+    margin-top: 17vh;
     justify-content: space-between;
-    background-color: #596b6629;
+    background-color: black;
+    color: white;
     padding: 10px;
 }
 
 .footer_links{
-    color: black;
+    color: white;
     text-decoration: none;
     
 }
@@ -490,6 +515,7 @@ input{
 }
 .find_me img[alt="notfound"]{
     width: 30%;
+    background-color: white;
 }
 
 
@@ -500,7 +526,7 @@ input{
         width: 50px;
         position: absolute;
         border-radius: 5px;
-        right: 10%;
+        right: 5%;
         top: 15px;
         
     }
@@ -532,18 +558,18 @@ input{
         justify-content: center;
         align-items: center;
         background-color: black;
+        position: fixed;
+        z-index: 2;
+        top: 6vh;
         
     }
     #NavLinks{
         display: none
         
        }
-    .heading{
-       
-        justify-content:left;
-    
-    }
+   
     .NavBar{
+        width: 100vw;
         height: 50px;
         display: flex;
         justify-content: space-between;
@@ -554,11 +580,96 @@ input{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    top: 6vh;
     
 }
+.Home_Container{
+    top: 6vh;
+}
+.display_Image img[alt='product_images']{
+    width: 100%;
+    height: 30vh;
+        }
+        .side_container{
+            display: none;
+        }
 .Product_Container{
-    /* display: block; */
+    flex-direction: column;
+    width: 100%;
+}
+.Particular_product_Container{
+    width: 80%;
+}
+.Particular_product_Container img[alt='product_logo'] {
+    width: 100px;
+    height: 200px;
+}
+.Search_Bar{
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.Search_Bar button{
+height: 30px;
+padding: 5px;
+}
+.Search_Bar input{
+    padding: 10px;
+}
+.BestSeller_Products{
     flex-direction: column;
 }
+.Policy_Container{
+    flex-direction: column;
+}
+.Particular_Policy_Container{
+    width: 90%;
+}
+.Cart_Container{
+    flex-direction: column;
+    align-items: center;
+}
+.Cart_Products{
+    width: 100%;
+}
+.Added_Product{
+    width: 100%;
+    align-items: center;
+}
+
+
+
+/* ..................footer............. */
+.footer{
+    text-align: center;
+    flex-direction: column;
+
+    
+}
+.company_details{
+    width: 90%;
+   
+}
+.company_details p{
+    text-align: center;
+    padding: 0px 25px;
+}
+.Products{
+    width: 90%;
+   
+}
+.Resourses{
+    width: 90%;
+}
+
+.find_me{
+    width: 90%;
+    text-align: center;
+   
+}
+
+
+
     
 }

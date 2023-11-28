@@ -8,20 +8,20 @@ import Footer from './Layout/Footer'
 const Home = () => {
   const HomeData =useContext(Storedata)
   const dispatch =useDispatch()
-  const shuffledImages = [...HomeData];
-  // console.log(shuffledImages);
 
-  for (let i = shuffledImages.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledImages[i], shuffledImages[j]] = [shuffledImages[j], shuffledImages[i]];
-  }
-const selectedImages = shuffledImages.slice(0, 6);
+  const shuffledImages = [...HomeData]
+//  for (let i = shuffledImages.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [shuffledImages[i], shuffledImages[j]] = [shuffledImages[j], shuffledImages[i]];
+//   }
+const selectedImages = shuffledImages.slice(17, 23);
 
+// for changing the image in every interval
 const images = [
 'https://images-eu.ssl-images-amazon.com/images/G/31/img22/Laptops/Revamp/D54261251_IN_PC_Laptops_PageRevamp_BAU_HEDDER_1242x450.jpg',
 'https://www.newzli.com/wp-content/uploads/2022/05/SL-5_Electronics_1000X300-1.jpg',
 'https://www.takemetechnically.com/wp-content/uploads/2023/05/amazon-great-summer-sale-2023-offers-up-to-70-off-on-gaming-laptops-and-gadgets.webp'
-];
+];    
 
 const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -33,6 +33,11 @@ useEffect(() => {
   }, 5000); 
   return () => clearInterval(interval); 
 }, [images.length]);
+
+// ........
+const ScrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 
   return (
@@ -50,7 +55,7 @@ useEffect(() => {
   return(
     <div key={index} className='Particular_product_Container'>
 
-  <Link to={"/Data/"+data._id+data.id} state={{id:data._id}}>
+  <Link to={"/Data/"+data._id+data.id} state={{id:data._id}} onClick={ScrollToTop}>
 <img  src={data.image} alt='product_logo'/>
 </Link>
 <div>

@@ -20,9 +20,9 @@ const Footer = () => {
   <Link className='footer_links' onClick={()=>ScrollToTop()}to="/">Home</Link>
   <Link  className='footer_links' onClick={()=>ScrollToTop()}to="/Accessories">Accessories</Link>
   <Link  className='footer_links' onClick={()=>ScrollToTop()}to="/Laptops">Laptops</Link>
-  <Link  className='footer_links' onClick={()=>ScrollToTop()}to="/Mobile">Mobile</Link>
+  <Link  className='footer_links' onClick={()=>ScrollToTop()}to="/Mobiles">Mobiles</Link>
   <Link  className='footer_links' onClick={()=>ScrollToTop()}to="/Watches">Watches</Link>
-  {/* <Link  className='footer_links'onClick={()=>ScrollToTop()} to="/food">Food</Link> */}
+  
     
        
 </div>
