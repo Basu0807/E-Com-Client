@@ -46,7 +46,7 @@ const AddToCart=()=>{
       
     }
   </div>
-  {/* <Footer/> */}
+  <Footer/>
   
     </>
   )
