@@ -8,9 +8,7 @@ import { Storedata } from './RoutesCompo'
 const GenericCompo = ({image,heading,price,id}) => {
 
   const dispatch= useDispatch()
-  // const ScrollToTop = () => {
-  //   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // }
+  
   
   const ProductData =useContext(Storedata)
   const SelectedProduct = ProductData.find((item)=>item._id===id)
@@ -29,7 +27,7 @@ const GenericCompo = ({image,heading,price,id}) => {
 </Link>
 <div>
 <p>{heading}</p>
-<p>Price: {price}</p>
+<p style={{color:'green',fontWeight:'bolder'}}>Price: {price}</p>
 <button onClick={()=>AddToCart()}>Add to cart</button>
 </div>
 

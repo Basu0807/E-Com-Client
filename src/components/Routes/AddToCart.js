@@ -5,6 +5,7 @@ import axios from 'axios';
 // import Footer from '../Layout/Footer';
 import { Decrease, Increase, Remove } from '../Redux/CartSlice';
 import { Link } from 'react-router-dom';
+import Footer from '../Layout/Footer';
 // import { Link } from 'react-router-dom';
 
 const AddToCart = () => {
@@ -35,7 +36,8 @@ const AddToCart = () => {
   return (
 
     <>
-    {CartItems.length !==0 ? 
+   
+   {CartItems.length !==0 ? 
     <div className='Cart_Container'>
     <div className='Cart_Products'>
       {
@@ -64,11 +66,11 @@ const AddToCart = () => {
       }
     
     </div>
-    <div>
-      <h1>Total Amount:₹{Total}</h1>
+    <div className='Total_Container'>
+      <h1 style={{color:'red'}}>Total Amount:₹{Total}</h1>
       <h2>Total Number of items Added - {quantity}</h2>
     
-      <button>Buy Now</button>
+      <button className='BuyNow_btn'>Buy Now</button>
     </div>
       </div>
     : 
@@ -78,9 +80,13 @@ const AddToCart = () => {
     
     </div>
     <div>
-      <Link to='/' style={{textDecoration:'none'}}><h1 style={{color:'black',backgroundColor:'red',borderRadius:5,padding:5}}>Shop Now</h1></Link>
+      <Link to='/' style={{textDecoration:'none'}}><h1 style={{color:'white',backgroundColor:'black',borderRadius:5,padding:5}}>Shop Now</h1></Link>
     </div>
+    
       </div>} 
+  
+      <Footer/>
+      
     </>
    
      

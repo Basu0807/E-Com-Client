@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import GenericCompo from '../Routes/GenericCompo'
 import { Storedata } from '../Routes/RoutesCompo'
 import Footer from '../Layout/Footer'
+import { Link } from 'react-router-dom'
 
 const Accessories = () => {
   const ProductData =useContext(Storedata)
@@ -10,10 +11,10 @@ const Accessories = () => {
     <>
   <div className='main_container'>
     <div className='side_container'> 
-      <p>Charger</p>
-      <p>nsdofjwn</p>
-      <p>nsdofjwn</p>
-      <p>nsdofjwn</p>
+    <h1>Accessories</h1>
+      <h2> <Link className='submenu_link'to={'/products/Charger'} state={{Brand:'charger'}}>Charger</Link></h2>
+      <h2><Link className='submenu_link' to={'/products/PowerBank'} state={{Brand:'Power Bank'}}>Power Bank</Link></h2>
+
     </div>
     <div className='Product_Container'>
     {

@@ -40,14 +40,18 @@ const Header = () => {
     }
     console.log(data.item);
     console.log(data.search);
+
     const HandleClick=()=>{
       localStorage.removeItem('token')
       alert('You will be logged out')
       navigate('/login')
         }
   const CartCount=useSelector((state)=>state.InDe.Cart.length)
-  
   // console.log(CartCount);
+
+  const ScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   return (
     <>
    
@@ -68,16 +72,17 @@ const Header = () => {
         <h3 className='heading2'> ME SHOPPING</h3>
   
         </div>
-       <NavLink className='NAV'  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/">Home</NavLink>
+       <NavLink className='NAV' onClick={ScrollToTop} style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/">Home</NavLink>
       <div>
       <nav>
   <ul>
    <li>
-   <NavLink  className='NAV'style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Accessories">Accessories</NavLink>
+   <NavLink  className='NAV' onClick={ScrollToTop} style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Accessories">Accessories</NavLink>
 
       <ul class="submenu">
-        <li><Link to={'/products/Charger'} state={{Model:'charger'}}>Charger</Link></li>
-        <li><Link to={'/products/PowerBank'} state={{Model:'Power Bank'}}>Power Bank</Link></li>
+        <li><Link className='submenu_link'to={'/products/Charger'} state={{Brand:'charger'}}>Charger</Link></li>
+        <li><Link className='submenu_link' to={'/products/PowerBank'} state={{Brand:'Power Bank'}}>Power Bank</Link></li>
+       
         
         <li></li>
       </ul>
@@ -90,11 +95,11 @@ const Header = () => {
       <nav>
   <ul>
    <li>
-   <NavLink   className='NAV'  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})}to="/Mobiles">Mobiles</NavLink>
+   <NavLink   className='NAV' onClick={ScrollToTop} style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})}to="/Mobiles">Mobiles</NavLink>
 
       <ul class="submenu">
-      <li><Link to={'/products/RealMe'} state={{Brand:'realme'}}>RealME</Link></li>
-        <li><Link to={'/products/Vivo'} state={{Brand:'Vivo'}}>Vivo</Link></li>
+      <li><Link className='submenu_link' to={'/products/RealMe'} state={{Brand:'realme'}}>RealME</Link></li>
+        <li><Link className='submenu_link' to={'/products/Vivo'} state={{Brand:'Vivo'}}>Vivo</Link></li>
       </ul>
     </li>
    
@@ -105,12 +110,12 @@ const Header = () => {
       <nav>
   <ul>
    <li>
-   <NavLink  className='NAV'  style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Watches">Watches</NavLink>
+   <NavLink  className='NAV' onClick={ScrollToTop} style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Watches">Watches</NavLink>
 
       <ul class="submenu">
-      <li><Link to={'/products/Titan'} state={{Model:'titan'}}>Titan</Link></li>
-        <li><Link to={'/products/Casio'} state={{Model:'Casio'}}>Casio</Link></li>
-        <li><Link to={'/products/Fastrack'} state={{Model:'fastrack'}}>Fastrack</Link></li>
+      <li><Link className='submenu_link' to={'/products/Titan'} state={{Brand:'Titan'}}>Titan</Link></li>
+        <li><Link className='submenu_link' to={'/products/Casio'} state={{Brand:'Casio'}}>Casio</Link></li>
+        <li><Link className='submenu_link' to={'/products/Fastrack'} state={{Brand:'fastrack'}}>Fastrack</Link></li>
       </ul>
     </li>
    
@@ -121,12 +126,12 @@ const Header = () => {
 <nav>
   <ul>
    <li>
-   <NavLink  className='NAV' style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Laptops">Laptops</NavLink>
+   <NavLink  className='NAV' onClick={ScrollToTop} style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/Laptops">Laptops</NavLink>
 
       <ul class="submenu">
-      <li><Link to={'/products/Acer'} state={{Model:'Acer'}}>Acer</Link></li>
-        <li><Link to={'/products/Hp'} state={{Model:'Hp'}}>Hp</Link></li>
-        <li><Link to={'/products/Dell'} state={{Model:'Dell'}}>Dell</Link></li>
+      <li><Link className='submenu_link' to={'/products/Acer'} state={{Brand:'Acer'}}>Acer</Link></li>
+        <li><Link className='submenu_link' to={'/products/Hp'} state={{Brand:'HP'}}>Hp</Link></li>
+        <li><Link className='submenu_link' to={'/products/Dell'} state={{Brand:'Dell'}}>Dell</Link></li>
       </ul>
     </li>
    
@@ -143,7 +148,7 @@ const Header = () => {
       {/* <Link to='/relatedProducts'onClick={Search} state={{data:data.item}}>Search</Link> */}
       </div>
 
-    <Link className='cart_logo' to='AddToCart'>   
+    <Link className='cart_logo'onClick={ScrollToTop} to='AddToCart'>   
     <img src='https://www.clker.com/cliparts/X/U/F/3/N/2/shopping-cart-logo.svg' alt='cart_logo'/><span>{CartCount}</span>
 </Link>
    <nav>
