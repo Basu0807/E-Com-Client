@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Decrease, Increase, Remove } from '../Redux/CartSlice';
 import { Link } from 'react-router-dom';
 import Footer from '../Layout/Footer';
+import {loadStripe} from '@stripe/stripe-js'
 
 const AddToCart = () => {
   const CartItems=useSelector((state)=>state.InDe.Cart)
@@ -29,14 +30,29 @@ const AddToCart = () => {
     }
       },[token,navigate])
     
-      const BuyNow=async()=>{
-        await axios.post('http://localhost:4000/checkout',{
-          quantity:quantity,
+      const BuyNow =async()=>{
+        const stripe =await loadStripe("pk_test_51OHNDNSEW2AXc16ZTfkbWd5hSAEhfJCQNbBI3ZBzXHRRafQnJFttZWKdoCm3zh6VlsdcqUHtu3PDH3W4uim3iOrT007UzNPtUt")
+        const body ={
+          products:CartItems,
           total:Total
-        }).then((res)=>console.log(res))
-      .catch((err)=>console.log(err))
-}
-    
+        }
+        console.log(body)
+        const headers={
+          "Content-Type":"application/json"
+        }
+        const response = await fetch("https://e-com-server-ce50.onrender.com/checkout",{
+                method:"POST",
+                headers:headers,
+                body:JSON.stringify(body)
+        })
+        const session= await response.json();
+        const result =stripe.redirectToCheckout({
+          sessionId:session.id
+        })
+        if(result.error){
+          console.log(result.error)
+        }
+       }
     
   return (
 
