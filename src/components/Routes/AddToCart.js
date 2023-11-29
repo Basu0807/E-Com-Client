@@ -21,7 +21,7 @@ const AddToCart = () => {
     if(token){
       axios.get('https://e-com-server-ce50.onrender.com/user/profile',{headers:{
         "authorization":`Bearer ${token}`
-      }}).then((res)=>console.log(res.data))
+      }}).then((res)=>(res.data))
       .catch((err)=>console.log(err))
     }
     else{
@@ -34,7 +34,8 @@ const AddToCart = () => {
         const stripe =await loadStripe("pk_test_51OHNDNSEW2AXc16ZTfkbWd5hSAEhfJCQNbBI3ZBzXHRRafQnJFttZWKdoCm3zh6VlsdcqUHtu3PDH3W4uim3iOrT007UzNPtUt")
         const body ={
           products:CartItems,
-          total:Total
+          total:Total,
+          quantity:quantity
         }
         console.log(body)
         const headers={
