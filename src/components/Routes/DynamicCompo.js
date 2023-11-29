@@ -8,7 +8,7 @@ import Footer from '../Layout/Footer'
 const DynamicCompo = () => {
   const Products =useContext(Storedata)
   const Brand=useLocation().state.Brand
-  console.log(Brand);
+  // console.log(Brand);
   return (
 <>
 <div className='main_container'>
