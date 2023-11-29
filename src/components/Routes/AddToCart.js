@@ -69,7 +69,7 @@ const AddToCart = () => {
            <div className='Added_Product' key={index}>
     <Link  to={"/Data/"+item._id} state={{id:item._id}} ><img src={item.image} alt='product_image'/> </Link>
     <div className='Added_Product_details'>
-      <p style={{fontWeight:'bold',height:70}}>{item.heading}</p>
+      <p style={{fontWeight:'bold'}}>{item.heading}</p>
       <p style={{color:'green',fontWeight:'bold'}}>PRICE:₹{item.price}</p>  
       <div className='Count_btn_Container'><button className='count_btn' onClick={()=>dispatch(Increase(item._id))}>+</button>{item.quantity}
       <button onClick={()=>{
