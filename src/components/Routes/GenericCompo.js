@@ -31,8 +31,8 @@ const GenericCompo = ({image,heading,price,id}) => {
 <img  src={image} alt='product_logo'/>
 </Link>
 <div>
-<p>{heading}</p>
-<p style={{color:'green',fontWeight:'bolder'}}>Price: {price}</p>
+<p style={{fontWeight:'bolder'}}>{heading}</p>
+<p style={{color:'green',fontWeight:'bolder'}}>Price: ₹{price}</p>
 <button onClick={()=>AddToCart()}>Add to cart</button>
 </div>
 

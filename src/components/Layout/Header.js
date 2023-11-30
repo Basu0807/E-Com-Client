@@ -77,10 +77,10 @@ const Header = () => {
 
        <div id='NavLinks'>
       <div className='heading'>
-        <Link to ="/" className='NAV'>
-        <span className='heading1'><img src='https://logo.com/image-cdn/images/kts928pd/production/16e479a89e4fd9e607f8b4c9861f85a13307230e-392x400.png?w=1080&q=72'alt='logo'/></span>
+        <Link to ="/" className='heading1'>
+        <img src='https://logo.com/image-cdn/images/kts928pd/production/16e479a89e4fd9e607f8b4c9861f85a13307230e-392x400.png?w=1080&q=72'alt='logo'/>
         </Link> 
-        <h3 className='heading2'>SHOP HERE</h3>
+        <div className='heading2'>SHOP HERE</div>
   
         </div>
        <NavLink className='NAV' onClick={ScrollToTop} style={({isActive})=>({color:isActive?"rgb(0, 137, 196)":" "})} to="/">Home</NavLink>
@@ -149,14 +149,56 @@ const Header = () => {
   </ul>
 </nav>
 
-    </div>   
-    <div className='Upper_task_bar'>
+    </div> 
+    <div>
+<nav>
+  <ul>
+   <li>
+   <input type='text' name="search" value={data.search} onChange={InputHandler} placeholder='Search Here by Brands' required/>      <button type='button' onClick={Search}>Search</button>
+
+</li>
+</ul>
+</nav>
+</div>
+
+<div>
+<nav>
+  <ul>
+   <li>
+<Link className='cart_logo'onClick={ScrollToTop} to='AddToCart'>   
+    <img src='https://www.clker.com/cliparts/X/U/F/3/N/2/shopping-cart-logo.svg' alt='cart_logo'/><span>{CartCount}</span>
+</Link>
+</li>
+</ul>
+</nav>
+</div>   
+
+<div>
+<nav>
+  <ul>
+   <li>
+   <Link className='profile_logo'><img src='https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo.png' alt='profile_logo' /></Link> 
+
+<ul className="profile  ">
+  <li className={token?"":"login"}><Link style={{textDecoration:'none',color:'red'}} onClick={HandleClick}>LogOut</Link></li>
+  <li className={token?"login":""}><Link style={{textDecoration:'none',color:'black'}} to='/login'>Login</Link></li>
+  <li className={token?"login":""}><Link  style={{textDecoration:'none',color:'black'}}to='/signup'>Signup</Link></li>
+  
+</ul>
+</li>
+</ul>
+</nav>
+</div>   
     
-    <div className='User_Help_bar'>
-    <div className='Search_Container'>
+   
+    
+
+    {/* <div className='Search_Container'>
       <input type='text' name="search" value={data.search} onChange={InputHandler} placeholder='Search Here by Brands' required/>
       <button type='button' onClick={Search}>Search</button>
-      {/* <Link to='/relatedProducts'onClick={Search} state={{data:data.item}}>Search</Link> */}
+
+      </div>
+
       <Link className='cart_logo'onClick={ScrollToTop} to='AddToCart'>   
     <img src='https://www.clker.com/cliparts/X/U/F/3/N/2/shopping-cart-logo.svg' alt='cart_logo'/><span>{CartCount}</span>
 </Link>
@@ -175,14 +217,9 @@ const Header = () => {
    
   </ul>
 </nav>
-      </div>
+      */}
 
-    
-   
-        
-    </div>
-    </div>    
-       </div>
+</div>
        
        
        <br/>

@@ -28,7 +28,7 @@ axios.post('https://e-com-server-ce50.onrender.com/user/register',data)
 alert(res.data.msg) 
 if(res.data.msg === "You have successfully registered"){
   localStorage.setItem("token",res.data.token)
-  navigate('/AddToCart')
+  navigate('/')
 }
 else{
   navigate('/login')

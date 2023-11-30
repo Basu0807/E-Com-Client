@@ -53,14 +53,14 @@ const ScrollToTop = () => {
    {
  selectedImages.map((data,index)=>{
   return(
-    <div key={index} className='Particular_product_Container'>
+    <div key={index} className='Home_product_Container'>
 
   <Link to={"/Data/"+data._id+data.id} state={{id:data._id}} onClick={ScrollToTop}>
 <img  src={data.image} alt='product_logo'/>
 </Link>
 <div className='description'>
 <p>{data.heading}</p>
-<p style={{color:'green',fontWeight:'bold'}}>Price: {data.price}</p>
+<p style={{color:'green',fontWeight:'bold'}}>Price: ₹{data.price}</p>
 
 </div>
 <button onClick={()=>{

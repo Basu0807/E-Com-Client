@@ -27,7 +27,7 @@ await axios.post('https://e-com-server-ce50.onrender.com/user/login',data)
 alert(res.data.msg)
   if(res.data.token){
     localStorage.setItem("token",res.data.token)
-    navigate('/AddToCart')
+    navigate('/')
   }
   else{
     navigate('/login')
