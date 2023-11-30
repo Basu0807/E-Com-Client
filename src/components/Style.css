@@ -673,8 +673,8 @@ input{
     align-items: unset;
 }
 .Particular_product_Container img[alt='product_logo'] {
-    width: 200px;
-    height: 120px;
+    width: 240px;
+    height: 130px;
 }
 .Search_Bar{
     display: flex;

@@ -59,7 +59,7 @@ const ScrollToTop = () => {
 <img  src={data.image} alt='product_logo'/>
 </Link>
 <div className='description'>
-<p>{data.heading}</p>
+<p style={{fontWeight:'bolder'}}>{data.heading}</p>
 <p style={{color:'green',fontWeight:'bold'}}>Price: ₹{data.price}</p>
 
 </div>
